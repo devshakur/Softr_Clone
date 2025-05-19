@@ -1,11 +1,9 @@
-import {  Poppins } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
-import Nav from "@/components/Nav";
-
 
 const poppins = Poppins({
   variable: "--font-poppins",
-  weight: '400',
+  weight: "400",
   subsets: ["latin"],
 });
 
@@ -18,11 +16,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} antialiased h-[100vh] w-[100vw] bg-white`}
+        className={`${poppins.variable} antialiased h-[100vh]  w-[100vw] bg-white`}
       >
-        <Nav />
         {children}
-
       </body>
     </html>
   );

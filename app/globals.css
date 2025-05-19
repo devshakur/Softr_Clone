@@ -20,10 +20,26 @@
 }
 
 body {
-  font-family: poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
+nav:hover {
+  background-color: rgb(168, 138, 14);
+  border-radius: 10px;
+}
 
+.nav:active {
+  color: purple;
+}
 
+.room:hover {
+  color: blue;
+  cursor: pointer;
+}
+swiper-button-prev,
+.swiper-button-next {
+  color: #6b21a8; /* purple-800 or customize */
+}
