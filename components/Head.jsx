@@ -1,14 +1,17 @@
+"use client"
 import React from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 const Head = () => {
+  const router = useRouter();
   const BtnStyle =
     "border border-[#e4e4e9] bg-gray-100 p-2 rounded-md text-[12px] text-black";
   return (
-    <div className="mt-6 flex md:items-center md:justify-center pt-[30px]">
+    <div className="mt-[130px] flex md:items-center md:justify-center pt-[30px]">
       <div className="flex flex-col md:flex-row">
         <div className="flex justify-center items-center md:items-start flex-col md:ml-18">
           <h3 className="text-[35px] md:text-[31px] text-center font-poppins font-semibold">
-            Property Listing Template
+            Property Listing Market
           </h3>
           <div className="flex mt-6 gap-3">
             <button className={BtnStyle}>Marketplace</button>
@@ -20,14 +23,15 @@ const Head = () => {
               all types of real estate.
             </p>
           </div>
-          <div className="flex mt-8 gap-3">
-            <button className=" bg-[#FFB30B] px-4 py-2 rounded-md text-sm font-semibold text-[#2A182E]">
-              Use template
+          <div className="flex  mt-8 gap-3">
+            <button onClick={()=> router.push('/login')} className=" bg-[#FFB30B] px-4 py-2 cursor-pointer rounded-md text-sm font-semibold text-[#2A182E]">
+             Get Started
             </button>
             <button
-              className={`${BtnStyle} bg-gray-200 text-md font-semibold text-[#2A182E] px-8`}
+            onClick={()=> router.push('/signup')}
+              className={`${BtnStyle} bg-gray-200 text-md cursor-pointer font-semibold text-[#2A182E] px-8`}
             >
-              preview
+             Sign Up
             </button>
           </div>
         </div>

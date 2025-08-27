@@ -4,7 +4,7 @@ import MapComponent from "./MapComponent";
 import { useState } from "react";
 import SliderCarol from "./Slider";
 
-const Buy = () => {
+const Buy = ({title}) => {
   const Bedrooms = [
     "1 Bedroom",
     "2 Bedrooms",
@@ -40,7 +40,7 @@ const Buy = () => {
           />
           <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
             <h2 className="text-white text-xl sm:text-2xl font-bold">
-              Find Your Dream Home
+              {title}
             </h2>
           </div>
         </div>

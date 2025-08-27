@@ -1,14 +1,17 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RecentProperties } from "@/utils/data";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+
 
 const ITEMS_PER_PAGE = 4;
 
 const BuyersComp = ({ search }) => {
   const router = useRouter();
+  const location = usePathname();
   const [currentPage, setCurrentPage] = useState(1);
+  const [type, setType] = useState('rent')
 
   const handlePropertyDetails = (id) => {
     router.push(`/property/details/${id}`);
@@ -22,11 +25,23 @@ const BuyersComp = ({ search }) => {
       property.property_location.toLowerCase().includes(q)
     );
   });
+   
+useEffect(()=>{
+  location.includes('rent') ? setType('rent') : setType('sell')
+},[location])
+    // Filter based on property type rent or sell
+    const filteredProperty = RecentProperties.filter((property) => {
+      return (
+        property.property_type.includes(type)
+      );
+    });
+
+
 
   // Pagination Logic
-  const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(filteredProperty.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-  const paginatedItems = filtered.slice(
+  const paginatedItems = filteredProperty.slice(
     startIndex,
     startIndex + ITEMS_PER_PAGE
   );
@@ -60,7 +75,7 @@ const BuyersComp = ({ search }) => {
                 <p className="text-sm italic text-gray-600 mb-2">
                   {property.property_location}
                 </p>
-                <div className="grid grid-cols-2 gap-2 text-sm text-gray-700 border-t border-dotted border-purple-300 pt-2">
+                <div className="grid grid-cols-2 gap-2 text-xs text-gray-700 border-t border-dotted border-purple-300 pt-2">
                   {property.inner_details.map((inner, i) => (
                     <span key={i}>{inner}</span>
                   ))}

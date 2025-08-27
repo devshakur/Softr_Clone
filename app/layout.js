@@ -1,5 +1,6 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import { AuthProvider } from "./context";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -8,8 +9,9 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "First Next.js Site",
-  description: "Testing My Knowledge of Next.js",
+  title: "GidaConnect",
+  description:
+    "An app for Listing of property and connecting Tenants directly to lanndlord",
 };
 
 export default function RootLayout({ children }) {
@@ -18,7 +20,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${poppins.variable} antialiased h-[100vh]  w-[100vw] bg-white`}
       >
-        {children}
+        <AuthProvider> {children}</AuthProvider>
       </body>
     </html>
   );

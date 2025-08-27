@@ -11,12 +11,12 @@ const page = () => {
         />
         <div className="absolute inset-0 bg-black/25 bg-opacity-60 flex items-center justify-center">
           <h1 className="text-white text-[25px] font-bold italic">
-            Buy Listed Property
+            Rent Listed Property
           </h1>
         </div>
       </header>
       <div>
-        <Buy title={"Find Your Dream Home"} />
+        <Buy title={"Pay for your Desired Home"} />
       </div>
     </div>
   );
