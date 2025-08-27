@@ -26,10 +26,11 @@ export const AuthProvider = ({ children }) => {
   }
 
   async function handleGoogleSignIn() {
+    const redirectTo = `${process.env.NEXT_PUBLIC_SITE_URL}/auth/callback`;
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: "http://localhost:3000/dashboard", // redirect after login
+        redirectTo,
       },
     });
 
@@ -37,10 +38,11 @@ export const AuthProvider = ({ children }) => {
   }
 
   async function handleLinkedInLogin() {
+    const redirectTo = `${process.env.NEXT_PUBLIC_SITE_URL}/auth/callback`;
     await supabase.auth.signInWithOAuth({
       provider: "linkedin_oidc", // important: must be linkedin_oidc, not just "linkedin"
       options: {
-        redirectTo: `${window.location.origin}/auth/callback`,
+        redirectTo,
       },
     });
   }

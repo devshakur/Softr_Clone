@@ -69,7 +69,7 @@ const login = () => {
         <div className="w-[100%] flex justify-center flex-col items-center gap-4">
           <button
             onClick={SignInWithGoogle}
-            className="w-[90%] flex justify-center items-center  border text-sm border-gray-200 py-2 rounded-md text-gray-600"
+            className="w-[90%] flex justify-center cursor-pointer items-center  border text-sm border-gray-200 py-2 rounded-md text-gray-600"
           >
             <img
               src="/images/google.png"
@@ -80,7 +80,7 @@ const login = () => {
           </button>
           <button
             onClick={SignInWithLinkedln}
-            className="w-[90%] flex justify-center items-center gap-2 border border-gray-200 rounded-md text-sm text-gray-600"
+            className="w-[90%] flex cursor-ponter justify-center items-center gap-2 border border-gray-200 rounded-md text-sm text-gray-600"
           >
             <img
               src="/images/linkedln_logo.png"

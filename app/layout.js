@@ -12,15 +12,20 @@ export const metadata = {
   title: "GidaConnect",
   description:
     "An app for Listing of property and connecting Tenants directly to lanndlord",
+  icons: {
+    icon: "/favicon_io/favicon.ico",
+    shortcut: "/favicon_io/favicon-16x16.png",
+    apple: "/favicon_io/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${poppins.variable} antialiased h-[100vh]  w-[100vw] bg-white`}
+        className={`${poppins.variable} antialiased h-[100vh] w-[100vw] bg-white`}
       >
-        <AuthProvider> {children}</AuthProvider>
+        <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   );
